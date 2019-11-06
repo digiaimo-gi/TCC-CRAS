@@ -14,6 +14,29 @@
 Route::get('/', function () {
     return view('home');
 });
-Route::get('/sobre', function () {
-    return view('sobre');
+
+Route::get('/assistentesSociais', function () {
+    return view('assistentes_sociais.index');
 });
+
+Route::get('/estoque', function () {
+    return view('estoque.index');
+});
+
+Route::get('/scfv', function () {
+    return view('scfv.index');
+});
+
+Route::get('/recursosHumanos', function () {
+    return view('recursos_humanos.index');
+});
+
+Route::get('/recepcao', function () {
+    return view('recepcao.index');
+});
+
+Route::get('/referenciados', function () {
+    return view('referenciados.index');
+});
+
+//Route::resource('assistentes_sociais', 'AssistentesSociaisController');
