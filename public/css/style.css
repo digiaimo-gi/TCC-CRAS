@@ -31,7 +31,7 @@
     margin-left: -250px;
 }
 
-.sidebar-footer h6{
+.sidebar-footer h6 {
     text-align: center;
 }
 
@@ -66,7 +66,12 @@ a, a:hover, a:focus {
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #1d4e6b;
+    background: #1a455e;
+}
+
+#sidebar .sidebar-header h3 {
+    text-align: center;
+    margin-top: 20px;
 }
 
 #sidebar ul.components {
@@ -74,10 +79,10 @@ a, a:hover, a:focus {
     border-bottom: 1px solid #1a455e;
 }
 
-#sidebar ul p {
+#sidebar p {
     color: #fafafa;
     padding: 10px;
-    margin-left: 70px;
+    margin-left: 40px;
 }
 
 #sidebar ul li a {
@@ -111,4 +116,12 @@ ul ul a {
     -webkit-transform: translateX(50%);
     -ms-transform: translateX(50%);
     transform: translateX(50%);
+}
+
+.title {
+    text-align: center;
+}
+
+.subcontent {
+    padding: 50px;
 }

@@ -31,8 +31,12 @@ Route::get('/recursosHumanos', function () {
     return view('recursos_humanos.index');
 });
 
+//GRUPO RECEPÇÃO
 Route::get('/recepcao', function () {
     return view('recepcao.index');
+});
+Route::get('/recepcao/agendamentos', function (){
+    return view('recepcao.agendamentos');
 });
 
 Route::get('/referenciados', function () {

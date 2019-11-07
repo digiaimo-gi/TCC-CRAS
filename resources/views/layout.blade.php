@@ -3,7 +3,8 @@
 	<title>CRAS - @yield('title')</title>
  
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}" >
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}" >
 	
 </head>
 <body>
@@ -12,10 +13,11 @@
 		<!-- Menu Lateral! -->
 		<nav id="sidebar">
 			<div class="sidebar-header">
-				<h3>Projeto TCC</h3>
+				<h3>CRAS Jetuba</h3>
+                <p>Navegação</p>
 			</div>
 			<ul class="list-unstyled components">
-            <p>Navegação</p>
+            
 			
 			<li>
 				<a href="{{url('/')}}">Página Inicial</a>
@@ -24,7 +26,7 @@
 				<a href="#recepcaoSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Recepção</a>
                 <ul class="collapse list-unstyled" id="recepcaoSubmenu">
                     <li>
-                        <a href="#">Agendamentos</a>
+                        <a href="{{url('/recepcao/agendamentos')}}">Agendamentos</a>
                     </li>
                     <li>
                         <a href="#">Atendimento</a>
