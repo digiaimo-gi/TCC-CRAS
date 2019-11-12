@@ -9,10 +9,8 @@
 </div>
 
 <div class="subcontent">
-    <a href="{{url('/')}}" type="button" class="btn btn-primary btn-lg">Cadastro Único</a>
-    <a href="{{url('/')}}" type="button" class="btn btn-primary btn-lg">Assistente Social Patrícia Silva</a>
-    <a href="{{url('/')}}" type="button" class="btn btn-primary btn-lg">Assistente Social Patrícia Gouvea</a>
-    <a href="{{url('/')}}" type="button" class="btn btn-primary btn-lg">Psicóloga</a>
+    <!-- aqui vai uma barra de navegação com os menus das assistentes sociais,
+    para aparecer em baixo, se possível -->
 </div>
 
 
