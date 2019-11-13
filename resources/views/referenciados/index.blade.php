@@ -12,23 +12,27 @@
     e um botão para abrir uma ficha com os dados detalhados sobre a pessoa
     pq essa tabela está mt grande pra uma página web. Nem toda planilha dá
     pra ser adaptada pra web -->
-
-<table class="table table-sm">
-    <thead>
-        <tr>
-            <th scope="col">Pront.</th>
-            <th scope="col">Nome</th>
-            <th scope="col">D.N.</th>
-            <th scope="col">Endereço</th>
-            <th scope="col">Assistente Social</th>
-            <th scope="col">RG</th>
-            <th scope="col">CPF</th>
-            <th scope="col">NIS</th>
-            <th scope="col">Telefones</th>
-        </tr>
-    </thead>
-    <tbody>
-    </tbody>
-</table>
+<div class="subcontent">
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <th scope="col">Pront.</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Assistente Social</th>
+                <th scope="col">CPF</th>
+                <th scope="col">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row"></th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 @endsection
