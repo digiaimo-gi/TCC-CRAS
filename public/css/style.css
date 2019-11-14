@@ -118,6 +118,10 @@ ul ul a {
     text-align: center;
 }
 
+.botaoAdd {
+    text-align: right;
+}
+
 .subcontent {
     padding: 50px;
 }
