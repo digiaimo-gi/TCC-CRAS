@@ -9,7 +9,7 @@
 </div>
 
 <div class="botaoAdd">
-    <a href="" class="btn btn-success"><i class="fas fa-plus"></i> Novo</a>
+    <a href="{{url('/referenciados/create')}}" class="btn btn-success"><i class="fas fa-plus"></i> Novo</a>
 </div>
 
 <!-- provavelmente eu vou substituir essa tabela só com um ou dois campos,

@@ -39,8 +39,6 @@ Route::get('/recepcao/agendamentos', function (){
     return view('recepcao.agendamentos');
 });
 
-Route::get('/referenciados', function () {
-    return view('referenciados.index');
-});
+Route::resource('referenciados', 'ReferenciadoController');
 
 //Route::resource('assistentes_sociais', 'AssistentesSociaisController');
