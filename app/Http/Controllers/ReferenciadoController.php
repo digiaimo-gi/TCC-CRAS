@@ -34,7 +34,17 @@ class ReferenciadoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        DB::beginTransaction();
+        try {
+            Referenciado::create($request->all());
+            Endereco::create($request->all());
+            Telefone::create($request->all());
+            DB::commit();
+            return redirect("/referenciados")->with('success', "Referenciado " . $request->nome . " cadastrado com sucesso!");
+        } catch (Exception $e) {
+            DB::rollback();
+            return back()->with('danger', "Erro ao cadastrar referenciado!");
+        }
     }
 
     /**
