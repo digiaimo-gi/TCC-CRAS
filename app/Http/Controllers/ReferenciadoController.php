@@ -34,9 +34,41 @@ class ReferenciadoController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request);
         DB::beginTransaction();
         try {
-            Referenciado::create($request->all());
+            $referenciado = Referenciado::create(
+                [
+                    'prontuario' => $request->prontuario,
+                    'nome' => $request->nome,
+                    'data_nascimento' => $request->data_nascimento,
+                    'rg' => $request->rg,
+                    'cpf' => $request->cpf,
+                    'nis' => $request->nis,
+                    'assistente_social' => $request->assistente_social,
+                    'status' => $request->status,
+                    'frequencia_cb' => $request->frequencia_cb,
+                    'data_inclusao' => $request->data_inclusao,
+                    'data_inclusao_paif' => $request->data_inclusao_paif,
+                    'data_exclusao_paif' => $request->data_exclusao_paif,
+                    'observacoes' => $request->observacoes,
+                    'data_modificacao' => $request->data_modificacao,
+                ]
+            );
+            /*$telefone = Telefone::create(
+                [
+                    
+                ]    
+            );*/
+            /*$endereco = Endereco::create(
+                [
+                    'tipo_logradouro',
+                    'nome_logradouro',
+                    'numero',
+                    'complemento',
+                    'bairro'
+                ]    
+            );*/
             Endereco::create($request->all());
             Telefone::create($request->all());
             DB::commit();

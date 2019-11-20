@@ -16,6 +16,7 @@ class CreateReferenciadosTable extends Migration
         Schema::create('referenciados', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('prontuario');
+            $table->string('nome');
             $table->date('data_nascimento');
             $table->string('assistente_social');
             $table->string('status');

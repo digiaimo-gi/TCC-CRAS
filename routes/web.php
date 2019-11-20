@@ -39,6 +39,9 @@ Route::get('/recepcao/agendamentos', function (){
     return view('recepcao.agendamentos');
 });
 
-Route::resource('referenciados', 'ReferenciadoController');
-
-//Route::resource('assistentes_sociais', 'AssistentesSociaisController');
+Route::get('/referenciados', 'ReferenciadoController@index');
+Route::get('/referenciados/create', 'ReferenciadoController@create');
+Route::post('/referenciados/store', 'ReferenciadoController@store');
+Route::get('/referenciados/{id}/edit', 'ReferenciadoController@edit');
+Route::put('/referenciados/{id}', 'ReferenciadoController@update');
+Route::delete('/referenciados/{id}', 'ReferenciadoController@destroy');
