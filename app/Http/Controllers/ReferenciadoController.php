@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Referenciado;
+use App\Endereco;
+use App\Telefone;
+use DB;
 
 class ReferenciadoController extends Controller
 {
@@ -13,7 +17,11 @@ class ReferenciadoController extends Controller
      */
     public function index()
     {
-        return view('referenciados.index');
+        $data = [
+            'referenciados' => Referenciado::get(),
+        ];
+                
+        return view('referenciados.index', compact('data'));
     }
 
     /**
@@ -34,7 +42,7 @@ class ReferenciadoController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        //dd($request);
         DB::beginTransaction();
         try {
             $referenciado = Referenciado::create(

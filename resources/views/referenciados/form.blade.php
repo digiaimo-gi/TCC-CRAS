@@ -14,6 +14,7 @@
 
 <div class="subcontent">
     <form method="POST" action="{{url('referenciados/store')}}">
+        @csrf
         <div class="form-group row">
             <label for="inputProntuario" class="col-sm-2 col-form-label">Prontuário</label>
             <div class="col-sm-10">
@@ -64,12 +65,12 @@
             <div class="col-sm-10">
                 <select name="tipo_logradouro" class="custom-select mr-sm-2" id="selectogradouro">
                     <option selected>Escolher Logradouro...</option>
-                    <option value="1">Alameda</option>
-                    <option value="2">Avenida</option>
-                    <option value="3">Rodovia</option>
-                    <option value="4">Rua</option>
-                    <option value="5">Travessa</option>
-                    <option value="6">Viela</option>
+                    <option value="Alameda">Alameda</option>
+                    <option value="Avenida">Avenida</option>
+                    <option value="Rodovia">Rodovia</option>
+                    <option value="Rua">Rua</option>
+                    <option value="Travessa">Travessa</option>
+                    <option value="Viela">Viela</option>
                 </select>
             </div>
         </div>
@@ -114,11 +115,11 @@
             <div class="col-sm-10">
                 <select name="status" class="custom-select mr-sm-2" id="inputStatus">
                     <option selected>Escolher Status...</option>
-                    <option value="1">Ativo</option>
-                    <option value="2">PAIF</option>
-                    <option value="3">Inativo</option>
-                    <option value="4">Transferido</option>
-                    <option value="5">Extinto</option>
+                    <option value="Ativo">Ativo</option>
+                    <option value="PAIF">PAIF</option>
+                    <option value="Inativo">Inativo</option>
+                    <option value="Transferido">Transferido</option>
+                    <option value="Extinto">Extinto</option>
                 </select>
             </div>
         </div>
@@ -127,10 +128,10 @@
             <div class="col-sm-10">
                 <select name="frequencia_cb" class="custom-select mr-sm-2" id="inputFrequencia">
                     <option selected>Escolher Frequência da Cesta Básica...</option>
-                    <option value="1">Mensal</option>
-                    <option value="2">Bimestral</option>
-                    <option value="3">Trimestral</option>
-                    <option value="4">Eventual</option>
+                    <option value="Mensal">Mensal</option>
+                    <option value="Bimestral">Bimestral</option>
+                    <option value="Trimestral">Trimestral</option>
+                    <option value="Eventual">Eventual</option>
                 </select>
             </div>
         </div>

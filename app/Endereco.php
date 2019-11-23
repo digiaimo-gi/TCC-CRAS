@@ -10,6 +10,8 @@ class Endereco extends Model
 
     protected $table = 'enderecos';
 
+    public $timestamps = false;
+
     public function referenciado()
     {
         return $this->hasOne('App\Referenciado');

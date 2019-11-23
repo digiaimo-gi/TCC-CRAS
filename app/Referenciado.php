@@ -11,6 +11,8 @@ class Referenciado extends Model
 
     protected $table = 'referenciados';
 
+    public $timestamps = false;
+
     public function endereco()
     {
         return $this->belongsTo('App\Endereco');
