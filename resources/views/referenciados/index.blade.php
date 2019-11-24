@@ -12,10 +12,6 @@
     <a href="{{url('/referenciados/create')}}" class="btn btn-success"><i class="fas fa-plus"></i> Novo</a>
 </div>
 
-<!-- provavelmente eu vou substituir essa tabela só com um ou dois campos,
-    e um botão para abrir uma ficha com os dados detalhados sobre a pessoa
-    pq essa tabela está mt grande pra uma página web. Nem toda planilha dá
-    pra ser adaptada pra web -->
 <div class="subcontent">
     <table class="table table-sm">
         <thead>
