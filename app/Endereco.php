@@ -8,7 +8,7 @@ class Endereco extends Model
 {
     protected $fillable = ['tipo_logradouro', 'nome_logradouro', 'numero', 'complemento', 'bairro'];
 
-    protected $table = 'enderecos';
+    protected $table = 'endereco';
 
     public $timestamps = false;
 

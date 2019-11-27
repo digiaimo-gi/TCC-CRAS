@@ -85,6 +85,15 @@ class ReferenciadoController extends Controller
         }
     }
 
+    public function ficha($id) {
+
+        $data = [
+            'referenciado' => Referenciado::findOrFail($id),
+        ];
+                
+        return view('referenciados.ficha', compact('data'));
+    }
+
     /**
      * Display the specified resource.
      *

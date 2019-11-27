@@ -30,8 +30,8 @@
                 <td>{{$r->prontuario}}</td>
                 <td>{{$r->nome}}</td>
                 <td>{{$r->assistente_social}}</td>
-                <td>{{$r->cpf}}</td>                
-                <td><span style="font-size: 2em"><a href=""><i class="fas fa-address-card"></i></a></span></td>
+                <td>{{$r->cpf}}</td>
+                <td><span style="font-size: 2em"><a href="{{url('/referenciados/ficha/' . $r->id)}}"><i class="fas fa-address-card"></i></a></span></td>
                 <td><span style="font-size: 2em"><a href=""><i class="fas fa-box-open"></i></a></span></td>
             </tr>
             @endforeach
