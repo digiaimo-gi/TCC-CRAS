@@ -16,4 +16,9 @@ class Endereco extends Model
     {
         return $this->hasOne('App\Referenciado');
     }
+
+    public function funcionario()
+    {
+        return $this->hasOne('App\Funcionario');
+    }
 }

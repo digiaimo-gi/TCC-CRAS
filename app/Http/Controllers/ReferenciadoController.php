@@ -45,7 +45,16 @@ class ReferenciadoController extends Controller
         //dd($request);
         DB::beginTransaction();
         try {
-            $referenciado = Referenciado::create(
+            $endereco = Endereco::create(
+                [
+                    'tipo_logradouro' => $request->tipo_logradouro,
+                    'nome_logradouro' => $request->nome_logradouro,
+                    'numero'          => $request->numero,
+                    'complemento'     => $request->complemento,
+                    'bairro'          => $request->bairro
+                ]    
+            );
+            Referenciado::create(
                 [
                     'prontuario'         => $request->prontuario,
                     'nome'               => $request->nome,
@@ -61,6 +70,7 @@ class ReferenciadoController extends Controller
                     'data_exclusao_paif' => $request->data_exclusao_paif,
                     'observacoes'        => $request->observacoes,
                     'data_modificacao'   => $request->data_modificacao,
+                    'endereco_id'        => $endereco->id
                 ]
             );
             /*$telefone = Telefone::create(
@@ -68,15 +78,7 @@ class ReferenciadoController extends Controller
                     
                 ]    
             );*/
-            /*$endereco = Endereco::create(
-                [
-                    'tipo_logradouro' => $request->tipo_logradouro,
-                    'nome_logradouro' => $request->nome_logradouro,
-                    'numero'          => $request->numero,
-                    'complemento'     => $request->complemento,
-                    'bairro'          => $request->bairro
-                ]    
-            );*/
+            
             DB::commit();
             return redirect("/referenciados")->with('success', "Referenciado " . $request->nome . " cadastrado com sucesso!");
         } catch (Exception $e) {

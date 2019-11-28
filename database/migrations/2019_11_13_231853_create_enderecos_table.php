@@ -18,7 +18,7 @@ class CreateEnderecosTable extends Migration
             $table->string('tipo_logradouro');
             $table->string('nome_logradouro');
             $table->integer('numero');
-            $table->string('complemento');
+            $table->string('complemento')->nullable();
             $table->string('bairro');
         });
     }
@@ -30,6 +30,6 @@ class CreateEnderecosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('endereco');
+        Schema::drop('endereco');
     }
 }

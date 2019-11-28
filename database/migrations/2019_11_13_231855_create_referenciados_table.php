@@ -18,6 +18,8 @@ class CreateReferenciadosTable extends Migration
             $table->integer('prontuario');
             $table->string('nome');
             $table->date('data_nascimento');
+            $table->integer('endereco_id')->unsigned();
+            //$table->foreign('endereco_id')->references('id')->on('endereco');
             $table->string('assistente_social');
             $table->string('status');
             $table->string('frequencia_cb');
@@ -39,6 +41,6 @@ class CreateReferenciadosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('referenciados');
+        Schema::drop('referenciados');
     }
 }
