@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTelefonesTable extends Migration
+class Pessoa extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreateTelefonesTable extends Migration
      */
     public function up()
     {
-        Schema::create('telefones', function (Blueprint $table) {
+        Schema::create('pessoa', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('numero');
-            $table->string('tipo');
-            $table->integer('pessoa_id')->unsigned();
+            $table->string('nome');
+            $table->date('data_nascimento');
+            $table->integer('endereco_id')->unsigned();
+            $table->string('rg');
+            $table->string('cpf');
         });
     }
 
@@ -28,6 +30,6 @@ class CreateTelefonesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('telefones');
+        Schema::drop('pessoa');
     }
 }

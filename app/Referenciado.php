@@ -6,20 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Referenciado extends Model
 {
-    protected $fillable = ['prontuario', 'nome', 'data_nascimento', 'assistente_social', 'status', 'frequencia_cb', 'rg', 
-    'cpf', 'nis', 'data_inclusao', 'data_inclusao_paif', 'data_exclusao_paif', 'observacoes', 'data_modificacao', 'endereco_id'];
+    protected $fillable = ['pessoa_id', 'prontuario', 'assistente_social', 'status', 'frequencia_cb', 'nis', 
+    'data_inclusao', 'data_inclusao_paif', 'data_exclusao_paif', 'observacoes', 'data_modificacao'];
 
     protected $table = 'referenciados';
 
     public $timestamps = false;
-
-    public function endereco()
-    {
-        return $this->belongsTo('App\Endereco');
-    }
     
-    public function telefone()
+    public function pessoa()
     {
-        return $this->belongsToMany('App\Telefone');
+        return $this->belongsTo('App\Pessoa');
     }
 }

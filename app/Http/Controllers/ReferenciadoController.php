@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Referenciado;
 use App\Endereco;
 use App\Telefone;
+use App\Pessoa;
 use DB;
 
 class ReferenciadoController extends Controller
@@ -17,8 +18,14 @@ class ReferenciadoController extends Controller
      */
     public function index()
     {
+        //não ta funcionando, to sem saco
         $data = [
-            'referenciados' => Referenciado::get(),
+            DB::table('pessoa')
+            ->select('pessoa.id')
+            ->join('referenciados', 'pessoa.id', '=', 'referenciados.pessoa_id')
+            ->join('telefones', 'pessoa.id', '=', 'telefone.pessoa_id')
+            ->join('endereco', 'endereco.id', '=', 'pessoa.endereco_id')
+            ->get()
         ];
                 
         return view('referenciados.index', compact('data'));
@@ -45,6 +52,7 @@ class ReferenciadoController extends Controller
         //dd($request);
         DB::beginTransaction();
         try {
+            
             $endereco = Endereco::create(
                 [
                     'tipo_logradouro' => $request->tipo_logradouro,
@@ -54,13 +62,28 @@ class ReferenciadoController extends Controller
                     'bairro'          => $request->bairro
                 ]    
             );
+
+            $pessoa = Pessoa::create(
+                [
+                    'nome'            => $request->nome,
+                    'data_nascimento' => $request->data_nascimento,
+                    'endereco_id'     => $endereco->id,
+                    'rg'              => $request->rg,
+                    'cpf'             => $request->cpf
+                ]
+            );
+
+            $telefone = Telefone::create(
+                [
+                    'numero' => $request->numero,
+                    'tipo'   => 'teste',
+                    'pessoa_id' => $pessoa->id
+                ]
+                );
+
             Referenciado::create(
                 [
                     'prontuario'         => $request->prontuario,
-                    'nome'               => $request->nome,
-                    'data_nascimento'    => $request->data_nascimento,
-                    'rg'                 => $request->rg,
-                    'cpf'                => $request->cpf,
                     'nis'                => $request->nis,
                     'assistente_social'  => $request->assistente_social,
                     'status'             => $request->status,
@@ -70,7 +93,7 @@ class ReferenciadoController extends Controller
                     'data_exclusao_paif' => $request->data_exclusao_paif,
                     'observacoes'        => $request->observacoes,
                     'data_modificacao'   => $request->data_modificacao,
-                    'endereco_id'        => $endereco->id
+                    'pessoa_id'          => $pessoa->id
                 ]
             );
             /*$telefone = Telefone::create(
