@@ -58,17 +58,17 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-6">
-                    <label for="endereco"><b>Endereço:</b></label> {{$data['referenciado']->endereco->tipo_logradouro}} {{$data['referenciado']->endereco->nome_logradouro}}, nº {{$data['referenciado']->endereco->numero}}
+                    <label for="endereco"><b>Endereço:</b></label> {{$data['endereco']->tipo_logradouro}} {{$data['endereco']->nome_logradouro}}, nº {{$data['endereco']->numero}}
                 </div>
                 
                 <div class="col-md-6">
-                    <label for="bairro"><b>Bairro:</b></label> {{$data['referenciado']->endereco->bairro}}
+                    <label for="bairro"><b>Bairro:</b></label> {{$data['endereco']->bairro}}
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-md-12">
-                    <label for="complemento"><b>Complemento:</b></label> {{$data['referenciado']->endereco->complemento === null ? "Sem Complemento" : $data['referenciado']->endereco->complemento}}
+                    <label for="complemento"><b>Complemento:</b></label> {{$data['endereco']->complemento === null ? "Sem Complemento" : $data['endereco']->complemento}}
                 </div>
             </div>
         </div>

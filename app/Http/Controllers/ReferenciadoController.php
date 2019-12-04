@@ -20,12 +20,11 @@ class ReferenciadoController extends Controller
     {
         //não ta funcionando, to sem saco
         $data = [
-            DB::table('pessoa')
-            ->select('pessoa.id')
-            ->join('referenciados', 'pessoa.id', '=', 'referenciados.pessoa_id')
-            ->join('telefones', 'pessoa.id', '=', 'telefone.pessoa_id')
-            ->join('endereco', 'endereco.id', '=', 'pessoa.endereco_id')
-            ->get()
+            'referenciados' => DB::table('pessoa')
+                           ->join('referenciados', 'pessoa.id', '=', 'referenciados.pessoa_id')
+                           ->select('referenciados.prontuario', 'pessoa.nome', 
+                           'referenciados.assistente_social', 'pessoa.cpf', 'referenciados.id')
+                           ->get()
         ];
                 
         return view('referenciados.index', compact('data'));
@@ -113,8 +112,20 @@ class ReferenciadoController extends Controller
     public function ficha($id) {
 
         $data = [
-            'referenciado' => Referenciado::findOrFail($id),
+            'referenciado' => DB::table('pessoa')
+                           ->join('referenciados', 'pessoa.id', '=', 'referenciados.pessoa_id')
+                           ->join('telefones', 'pessoa.id', '=', 'telefones.pessoa_id')
+                           ->select('pessoa.*', 'referenciados.*')
+                           ->where('referenciados.id', '=', $id)
+                           ->first(),
+            'endereco' => DB::table('endereco')
+                           ->join('pessoa', 'pessoa.endereco_id', '=', 'endereco.id')
+                           ->join('referenciados', 'referenciados.pessoa_id', '=', 'pessoa.id')
+                           ->select('endereco.*')
+                           ->where('referenciados.id', '=', $id)
+                           ->first()
         ];
+        //dd($data);
                 
         return view('referenciados.ficha', compact('data'));
     }
