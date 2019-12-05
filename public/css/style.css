@@ -63,16 +63,17 @@ a, a:hover, a:focus {
 #sidebar .sidebar-header {
     padding: 20px;
     background: #1a455e;
+    text-align: center;
 }
 
-#sidebar .sidebar-header h3 {
-    text-align: center;
-    margin-top: 20px;
+#sidebar .sidebar-header img {
+    margin-bottom: 20px;
 }
 
 #sidebar ul.components {
     padding: 20px 0;
     border-bottom: 1px solid #1a455e;
+    font-size: 15px;
 }
 
 #sidebar p {

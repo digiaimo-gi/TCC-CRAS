@@ -13,8 +13,8 @@
 		<!-- Menu Lateral! -->
 		<nav id="sidebar">
 			<div class="sidebar-header">
-				<h3>CRAS Jetuba</h3>
-                <p>Navegação</p>
+                <img src="img/brasao.png" class="align: center;">
+                <h4>CRAS Jetuba</h4>
 			</div>
 			<ul class="list-unstyled components">
             
