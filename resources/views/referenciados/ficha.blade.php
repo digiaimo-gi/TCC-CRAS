@@ -32,7 +32,7 @@
                     <label for="cpf"><b>CPF:</b></label> {{$data['referenciado']->cpf}}
                 </div>
                 <div class="col-md-4">
-                    <label for="nis"><b>NIS:</b></label> {{$data['referenciado']->nis === null ? "Não possui" : $data['referenciado']->nis}}
+                    <label for="nis"><b>NIS:</b></label> {{$data['referenciado']->nis === null ? "N/A" : $data['referenciado']->nis}}
                 </div>
             </div>
         </div>
@@ -96,25 +96,32 @@
                     <label for="data_inclusao"><b>Data de Inclusão:</b></label> {{$data['referenciado']->data_inclusao}}
                 </div>
                 <div class="col-md-4">
-                    <label for="data_inclusao_paif"><b>Data de Inclusão PAIF:</b></label> {{$data['referenciado']->data_inclusao_paif === null ? "Não é PAIF" : $data['referenciado']->data_inclusao_paif}}
+                    <label for="data_inclusao_paif"><b>Data de Inclusão PAIF:</b></label> {{$data['referenciado']->data_inclusao_paif === null ? "N/A" : $data['referenciado']->data_inclusao_paif}}
                 </div>
                 <div class="col-md-4">
-                    <label for="data_exclusao_paif"><b>Data de Exclusão PAIF:</b></label> {{$data['referenciado']->data_exclusao_paif === null ? "Não foi excluído" : $data['referenciado']->data_exclusao_paif}}
+                    <label for="data_exclusao_paif"><b>Data de Exclusão PAIF:</b></label> {{$data['referenciado']->data_exclusao_paif === null ? "N/A" : $data['referenciado']->data_exclusao_paif}}
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-md-12">
-                    <label for="observacoes"><b>Observações:</b></label> {{$data['referenciado']->observacoes === null ? "Não foram feitas observações sobre este referenciado." : $data['referenciado']->observacoes}}
+                    <label for="observacoes"><b>Observações:</b></label> {{$data['referenciado']->observacoes === null ? "N/A" : $data['referenciado']->observacoes}}
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-md-12">
-                    <label for="data_modificacao"><b>Data de Modificação:</b></label> {{$data['referenciado']->data_modificacao === null ? "Não houve modificação neste prontuário" : $data['referenciado']->data_modificacao}}
+                    <label for="data_modificacao"><b>Data de Modificação:</b></label> {{$data['referenciado']->data_modificacao === null ? "N/A" : $data['referenciado']->data_modificacao}}
                 </div>
             </div>
         </div>
     </div>
+    <br>
+    <div class="row">
+        <div class="col-md-12">
+            <p style="color: red">*N/A: Sem informação cadastrada.</p>
+        </div>
+    </div>
 </div>
+
 @endsection
