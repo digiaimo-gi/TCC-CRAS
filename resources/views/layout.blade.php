@@ -44,7 +44,7 @@
                 <a href="#rhSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Recursos Humanos</a>
                 <ul class="collapse list-unstyled" id="rhSubmenu">
                     <li>
-                        <a href="#">Funcionários</a>
+                        <a href="/recursosHumanos">Funcionários</a>
                     </li>
                     <li>
                         <a href="#">Banco de Horas</a>
