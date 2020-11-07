@@ -27,9 +27,20 @@ Route::get('/scfv', function () {
     return view('scfv.index');
 });
 
+
+//GRUPO RH
 Route::get('/recursosHumanos', function () {
     return view('recursos_humanos.index');
 });
+
+Route::get('/recursosHumanos', 'RecursosHumanosController@index');
+Route::get('/recursosHumanos/create', 'RecursosHumanosController@create');
+Route::post('/recursosHumanos/store', 'RecursosHumanosController@store');
+Route::get('/recursosHumanos/{id}/edit', 'RecursosHumanosController@edit');
+Route::put('/recursosHumanos/{id}', 'RecursosHumanosController@update');
+Route::delete('/recursosHumanos/{id}', 'RecursosHumanosController@destroy');
+
+Route::get('/recursosHumanos/ficha/{id}', 'RecursosHumanosController@ficha');
 
 //GRUPO RECEPÇÃO
 Route::get('/recepcao', function () {

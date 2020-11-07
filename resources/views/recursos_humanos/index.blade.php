@@ -22,7 +22,19 @@
                 <th scope="col" colspan="2">Ações</th>
             </tr>
         </thead>
-        
+        <tbody>
+            @foreach($data['funcionarios'] as $f)
+            <tr>
+                
+                <td>{{$f->matricula}}</td>
+                <td>{{$f->nome}}</td>
+                <td>{{$f->data_nascimento}}</td>
+                <td>{{$f->cargo}}</td>
+                <td><span style="font-size: 2em"><a href="{{url('/recursos_humanos/ficha/' . $f->id)}}"><i class="fas fa-address-card"></i></a></span></td>
+                <td><span style="font-size: 2em"><a href="{{url('/recursos_humanos/' . $f->id)}}"><i class="fas fa-trash-alt"></i></a></span></td>
+            </tr>
+            @endforeach
+        </tbody>
     </table>
 </div>
 @endsection
