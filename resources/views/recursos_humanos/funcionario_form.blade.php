@@ -60,7 +60,7 @@
         <div class="form-group row">
             <label for="inputDataInicio" class="col-sm-2 col-form-label">Início na Prefeitura</label>
             <div class="col-sm-10">
-                <input name="data_inclusao" class="form-control" id="inputDataInclusao" placeholder="dd/mm/AAAA">
+                <input name="data_inicio" class="form-control" id="inputDataInicio" placeholder="dd/mm/AAAA">
             </div>
         </div>
         <hr/>
