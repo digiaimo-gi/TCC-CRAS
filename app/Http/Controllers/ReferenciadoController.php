@@ -18,7 +18,7 @@ class ReferenciadoController extends Controller
      */
     public function index()
     {
-        //não ta funcionando, to sem saco
+
         $data = [
             'referenciados' => DB::table('pessoa')
                            ->join('referenciados', 'pessoa.id', '=', 'referenciados.pessoa_id')
@@ -37,7 +37,14 @@ class ReferenciadoController extends Controller
      */
     public function create()
     {
-        return view('referenciados.form');
+        $data = [
+            'assistentes' => DB::table('pessoa')
+                          ->join('funcionarios', 'pessoa.id', '=', 'funcionarios.pessoa_id')
+                          ->where('cargo', '=', 'Assistente Social')
+                          ->get()
+        ];
+
+        return view('referenciados.form', compact('data'));
     }
 
     /**
