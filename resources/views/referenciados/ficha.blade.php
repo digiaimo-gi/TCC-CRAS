@@ -122,6 +122,10 @@
             <p style="color: red">*N/A: Sem informação cadastrada.</p>
         </div>
     </div>
+
+    <div class="botaoAdd">
+        <a href="{{url('/referenciados/'.$data['referenciado']->id.'/edit')}}" class="btn btn-warning"><i class="fas fa-edit"></i> Editar</a>
+    </div>
 </div>
 
 @endsection

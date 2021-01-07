@@ -41,7 +41,9 @@ class ReferenciadoController extends Controller
             'assistentes' => DB::table('pessoa')
                           ->join('funcionarios', 'pessoa.id', '=', 'funcionarios.pessoa_id')
                           ->where('cargo', '=', 'Assistente Social')
-                          ->get()
+                          ->select('pessoa.nome')
+                          ->get(),
+            'titulo'      => "Adicionar",
         ];
 
         return view('referenciados.form', compact('data'));
@@ -125,7 +127,7 @@ class ReferenciadoController extends Controller
                            ->select('pessoa.*', 'referenciados.*')
                            ->where('referenciados.id', '=', $id)
                            ->first(),
-            'endereco' => DB::table('endereco')
+            'endereco'     => DB::table('endereco')
                            ->join('pessoa', 'pessoa.endereco_id', '=', 'endereco.id')
                            ->join('referenciados', 'referenciados.pessoa_id', '=', 'pessoa.id')
                            ->select('endereco.*')
@@ -156,7 +158,18 @@ class ReferenciadoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = [
+            'assistentes'  => DB::table('pessoa')
+                           ->join('funcionarios', 'pessoa.id', '=', 'funcionarios.pessoa_id')
+                           ->where('cargo', '=', 'Assistente Social')
+                           ->select('pessoa.nome')
+                           ->get(),
+            'referenciado' => Referenciado::findOrFail($id),
+            'titulo'       => "Editar",
+        ];
+        //$referenciado = Referenciado::findOrFail($id);
+
+        return view('referenciados.form', compact('data'));
     }
 
     /**
