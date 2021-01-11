@@ -181,7 +181,25 @@ class ReferenciadoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        DB::beginTransaction();
+        try {
+            //update de referenciado está funcionando, de pessoa endereço e telefone ainda não
+            $referenciado = Referenciado::findOrFail($id);
+            //$pessoa = Pessoa::findOrFail($request->$referenciado->pessoa_id);
+            //$endereco = Endereco::findOrFail($request->Endereco->id);
+            //$telefone = Telefone::findOrFail($request->Telefone->id);
+
+            $referenciado->update($request->all());
+            //$pessoa->update($request->all());
+            //$endereco->update($request->all());
+            //$telefone->update($request->all());
+
+            DB::commit();
+            return redirect('/referenciados')->with('success', 'Dados do referenciado alterado com sucesso!');
+        } catch (\Exception $e) {
+            DB::rollback();
+            return back()->with('error', 'Erro! As alterações não foram salvas.');
+        }
     }
 
     /**

@@ -13,8 +13,11 @@
 </div>
 
 <div class="subcontent">
-    <form method="POST" action="{{url('referenciados/store')}}">
+    <form method="POST" action="{{(isset($data['referenciado'])) ?  url('/referenciados/update/' . $data['referenciado']->id) : url('referenciados/store')}}">
         @csrf
+        @if(isset($data['referenciado']))
+            @method('PUT')
+        @endif
         <div class="form-group row">
             <label for="inputProntuario" class="col-sm-2 col-form-label">Prontuário</label>
             <div class="col-sm-10">
@@ -167,7 +170,7 @@
         </div>
         <div class="form-group row">
             <div class="col-sm-10">
-                <button name="submit" class="btn btn-success">Salvar</button>
+                <button name="submit" type="submit" class="btn btn-success">Salvar</button>
             </div>
         </div>
     </form>

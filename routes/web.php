@@ -54,7 +54,7 @@ Route::get('/referenciados', 'ReferenciadoController@index');
 Route::get('/referenciados/create', 'ReferenciadoController@create');
 Route::post('/referenciados/store', 'ReferenciadoController@store');
 Route::get('/referenciados/{id}/edit', 'ReferenciadoController@edit');
-Route::put('/referenciados/{id}', 'ReferenciadoController@update');
+Route::put('/referenciados/update/{id}', 'ReferenciadoController@update');
 Route::delete('/referenciados/{id}', 'ReferenciadoController@destroy');
 
 Route::get('/referenciados/ficha/{id}', 'ReferenciadoController@ficha');
