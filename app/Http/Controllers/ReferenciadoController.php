@@ -185,14 +185,39 @@ class ReferenciadoController extends Controller
         try {
             //update de referenciado está funcionando, de pessoa endereço e telefone ainda não
             $referenciado = Referenciado::findOrFail($id);
-            //$pessoa = Pessoa::findOrFail($request->$referenciado->pessoa_id);
-            //$endereco = Endereco::findOrFail($request->Endereco->id);
-            //$telefone = Telefone::findOrFail($request->Telefone->id);
+            $pessoa = Pessoa::findOrFail($referenciado->pessoa_id);
+            $endereco = Endereco::findOrFail($pessoa->Endereco->id);
+            $telefone = Telefone::findOrFail($pessoa->Telefone->id);
 
-            $referenciado->update($request->all());
-            //$pessoa->update($request->all());
-            //$endereco->update($request->all());
-            //$telefone->update($request->all());
+            $referenciado->prontuario         = $request->prontuario;
+            $referenciado->nis                = $request->nis;
+            $referenciado->assistente_social  = $request->assistente_social;
+            $referenciado->status             = $request->status;
+            $referenciado->frequencia_cb      = $request->frequencia_cb;
+            $referenciado->data_inclusao      = $request->data_inclusao;
+            $referenciado->data_inclusao_paif = $request->data_inclusao_paif;
+            $referenciado->data_exclusao_paif = $request->data_exclusao_paif;
+            $referenciado->observacoes        = $request->observacoes;
+            $referenciado->data_modificacao   = $request->data_modificacao;
+
+            $pessoa->nome            = $request->nome;
+            $pessoa->data_nascimento = $request->data_nascimento;
+            $pessoa->rg              = $request->rg;
+            $pessoa->cpf             = $request->cpf;
+
+            $endereco->tipo_logradouro = $request->tipo_logradouro;
+            $endereco->nome_logradouro = $request->nome_logradouro;
+            $endereco->numero          = $request->numero;
+            $endereco->complemento     = $request->complemento;
+            $endereco->bairro          = $request->bairro;
+            
+            $telefone->numero = $request->numero;
+            $telefone->tipo   = 'teste';
+            
+            //$pessoa->save();
+            //$endereco->save();
+            //$telefone->save();
+            $referenciado->save();
 
             DB::commit();
             return redirect('/referenciados')->with('success', 'Dados do referenciado alterado com sucesso!');
