@@ -33,7 +33,7 @@
         <div class="form-group row">
             <label for="inputDataNascimento" class="col-sm-2 col-form-label">Data de Nasc.</label>
             <div class="col-sm-10">
-                <input name="data_nascimento" class="form-control" id="inputDataNasc" placeholder="dd/mm/AAAA" value="{{isset($data['referenciado']) ? $data['referenciado']->prontuario :''}}">
+                <input name="data_nascimento" class="form-control" id="inputDataNasc" placeholder="dd/mm/AAAA" value="{{isset($data['referenciado']) ? $data['referenciado']->Pessoa->data_nascimento :''}}">
             </div>
         </div>
         <div class="form-group row">

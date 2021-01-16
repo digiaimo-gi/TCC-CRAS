@@ -183,41 +183,42 @@ class ReferenciadoController extends Controller
     {
         DB::beginTransaction();
         try {
-            //update de referenciado está funcionando, de pessoa endereço e telefone ainda não
+            //update de referenciado, pessoa e endereço está funcionando
+            //falta achar um jeito de fazer todos os telefones serem salvos no BD
             $referenciado = Referenciado::findOrFail($id);
+            $referenciado->update([
+                'prontuario'         => $request->prontuario,
+                'nis'                => $request->nis,
+                'assistente_social'  => $request->assistente_social,
+                'status'             => $request->status,
+                'frequencia_cb'      => $request->frequencia_cb,
+                'data_inclusao'      => $request->data_inclusao,
+                'data_inclusao_paif' => $request->data_inclusao_paif,
+                'data_exclusao_paif' => $request->data_exclusao_paif,
+                'observacoes'        => $request->observacoes,
+                'data_modificacao'   => $request->data_modificacao,
+            ]);
+            
             $pessoa = Pessoa::findOrFail($referenciado->pessoa_id);
-            $endereco = Endereco::findOrFail($pessoa->Endereco->id);
-            $telefone = Telefone::findOrFail($pessoa->Telefone->id);
-
-            $referenciado->prontuario         = $request->prontuario;
-            $referenciado->nis                = $request->nis;
-            $referenciado->assistente_social  = $request->assistente_social;
-            $referenciado->status             = $request->status;
-            $referenciado->frequencia_cb      = $request->frequencia_cb;
-            $referenciado->data_inclusao      = $request->data_inclusao;
-            $referenciado->data_inclusao_paif = $request->data_inclusao_paif;
-            $referenciado->data_exclusao_paif = $request->data_exclusao_paif;
-            $referenciado->observacoes        = $request->observacoes;
-            $referenciado->data_modificacao   = $request->data_modificacao;
-
-            $pessoa->nome            = $request->nome;
-            $pessoa->data_nascimento = $request->data_nascimento;
-            $pessoa->rg              = $request->rg;
-            $pessoa->cpf             = $request->cpf;
-
-            $endereco->tipo_logradouro = $request->tipo_logradouro;
-            $endereco->nome_logradouro = $request->nome_logradouro;
-            $endereco->numero          = $request->numero;
-            $endereco->complemento     = $request->complemento;
-            $endereco->bairro          = $request->bairro;
+            $pessoa->update([
+                'nome'            => $request->nome,
+                'data_nascimento' => $request->data_nascimento,
+                'rg'              => $request->rg,
+                'cpf'             => $request->cpf,
+            ]);
             
-            $telefone->numero = $request->numero;
-            $telefone->tipo   = 'teste';
-            
-            //$pessoa->save();
-            //$endereco->save();
-            //$telefone->save();
-            $referenciado->save();
+            $endereco = Endereco::findOrFail($pessoa->endereco_id);
+            $endereco->update([
+                'tipo_logradouro' => $request->tipo_logradouro,
+                'nome_logradouro' => $request->nome_logradouro,
+                'numero'          => $request->numero,
+                'complemento'     => $request->complemento,
+                'bairro'          => $request->bairro,
+            ]);
+
+            //$telefone = Telefone::findOrFail($pessoa->Telefone->id);
+            //$telefone->numero = $request->numero;
+            //$telefone->tipo   = 'teste';
 
             DB::commit();
             return redirect('/referenciados')->with('success', 'Dados do referenciado alterado com sucesso!');
