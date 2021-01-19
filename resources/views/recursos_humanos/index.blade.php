@@ -3,6 +3,7 @@
 @section('title', 'Recursos Humanos - Início')
  
 @section('content')
+
 <div class="title">
     <h3>Funcionários</h3>
 </div>

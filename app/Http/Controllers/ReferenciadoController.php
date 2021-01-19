@@ -12,7 +12,7 @@ use DB;
 class ReferenciadoController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Mostra uma lista de referenciados, retornando para a view index
      *
      * @return \Illuminate\Http\Response
      */
@@ -31,7 +31,7 @@ class ReferenciadoController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Redireciona para o formulário para adicionar um novo referenciado
      *
      * @return \Illuminate\Http\Response
      */
@@ -50,7 +50,7 @@ class ReferenciadoController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Guarda os dados do formulário no banco de dados
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -134,7 +134,6 @@ class ReferenciadoController extends Controller
                            ->where('referenciados.id', '=', $id)
                            ->first()
         ];
-        //dd($data);
                 
         return view('referenciados.ficha', compact('data'));
     }
@@ -151,7 +150,7 @@ class ReferenciadoController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Redireciona para o formulário de edição com os dados já preenchidos do referenciado para editar os dados
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -167,13 +166,12 @@ class ReferenciadoController extends Controller
             'referenciado' => Referenciado::findOrFail($id),
             'titulo'       => "Editar",
         ];
-        //$referenciado = Referenciado::findOrFail($id);
 
         return view('referenciados.form', compact('data'));
     }
 
     /**
-     * Update the specified resource in storage.
+     * Edita no banco de dados as informações enviadas pelo formulário de um referenciado já existente
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -224,7 +222,7 @@ class ReferenciadoController extends Controller
             return redirect('/referenciados')->with('success', 'Dados do referenciado alterado com sucesso!');
         } catch (\Exception $e) {
             DB::rollback();
-            return back()->with('error', 'Erro! As alterações não foram salvas.');
+            return redirect()->back()->with('error', 'Erro! As alterações não foram salvas.');
         }
     }
 
